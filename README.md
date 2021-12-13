@@ -1,7 +1,7 @@
 # xosmon
-This script uses SSH to connect to the specified server and will execute 3 commands based on the specified interval, logs the result and sends email if specified to notify the usage values.
+This script uses SSH to connect to the specified server and will execute below 3 commands based on the specified interval, logs the result and sends email if configured, to notify the usage values.
 
- - The SSH session will remain open until the script is terminated using CTRL+c.
+ - The SSH session will remain open until the script is terminated using CTRL+C.
 
  - Below commands will be executed on the target machine every {interval} seconds:
 
