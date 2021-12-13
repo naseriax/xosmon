@@ -1,8 +1,27 @@
 # xosmon
 This script uses SSH to connect to the specified server and will execute 3 commands based on the specified interval, logs the result and sends email if specified to notify the usage values.
 
-Basic Usage:
+ - The SSH session will remain open until the script is terminated using CTRL+c.
 
+ - Below commands will be executed on the target machine every {interval} seconds:
+
+CPU:
+```
+cat <(grep 'cpu ' /proc/stat) <(sleep 1 && grep 'cpu ' /proc/stat) | awk -v RS="" '{print ($13-$2+$15-$4)*100/($13-$2+$15-$4+$16-$5)}'
+```
+
+RAM:
+```
+free -m
+```
+
+Disk:
+```
+df -h
+```
+
+
+Basic Usage:
 ```
 $python3 xosmon.py -u username -p Password -a 172.172.172.172
 ```
