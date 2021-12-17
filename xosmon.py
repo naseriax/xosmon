@@ -132,7 +132,7 @@ class eagleEye:
     #Command: df -h
     def diskSpaceMonitor(self):
         self.mountPoints = {}
-        diskSpace = self.cliExec("df -h")
+        diskSpace = self.cliExec("df -hP")
         for m in diskSpace.splitlines()[1::]:
             ramUsageValues = [val for val in m.split(" ") if val != ""]
             self.mountPoints[ramUsageValues[5]] = float(ramUsageValues[4].replace("%",""))

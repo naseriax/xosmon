@@ -24,7 +24,7 @@ free -m
 
 Disk:
 ```
-df -h
+df -hP
 ```
 
 
